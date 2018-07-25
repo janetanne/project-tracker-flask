@@ -1,9 +1,8 @@
-<!doctype html>
-<html>
-<head>
-    <title>Project Info for {{ title }}</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}Project Info{% endblock %}
+
+{% block content %}
   <h1>Project Info for {{ title }}</h1>
   <ul><li>Description: {{ description }}</li>
   	<li>Maximum grade: {{ max_grade }}</li>
@@ -14,6 +13,4 @@
   		<li><a href='student?github={{ student }}'>{{ student }}</a>: {{ grade }}</li>
   	{% endfor %}
   </ul>
-
-</body>
-</html>
+{% endblock %}

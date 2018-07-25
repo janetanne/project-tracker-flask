@@ -1,9 +1,8 @@
-<!doctype html>
-<html>
-<head>
-    <title>Project Tracker</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}Project Tracker: Home{% endblock %}
+
+{% block content %}
   <h1>Project Tracker</h1>
   <h2>Students</h2>
   <ul>
@@ -19,5 +18,4 @@
     {{ project[0] }}</a></li>
   {% endfor %}
   </ul>
-</body>
-</html>
+{% endblock %}

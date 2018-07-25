@@ -1,17 +1,15 @@
-<!doctype html>
-<html>
-<head>
-	<title>Add New Project</title>
-</head>
+{% extends 'base.html' %}
 
-<body>
+{% block title %}Add New Project{% endblock %}
+
+{% block content %}
 	<form action="/project-added" method="POST">
 		<label>Project Name</label>
 			<input type="text" name="title">
 		<br>
 		<br>
 		<label>Description</label>
-			<textarea name="description"></textarea>
+			<div><textarea name="description"></textarea></div>
 		<br>
 		<br>
 		<label>Maximum grade</label>
@@ -19,6 +17,4 @@
 		<br><br>
 		<input type="submit" value="Add new project">
 	  </form>
-
-</body>
-</html>
+{% endblock %}

@@ -1,11 +1,8 @@
-<!doctype html>
-<html>
-<head>
-	<title>Student has been added!</title>
-</head>
+{% extends 'base.html' %}
 
-<body>
+{% block title %}Student added{% endblock %}
+
+{% block content %}
 	<p>Student has been added to the database!</p>
 	<p>Check the student's information <a href="/student?github={{ github }}">here</a>.</p>
-</body>
-</html>
+{% endblock %}
