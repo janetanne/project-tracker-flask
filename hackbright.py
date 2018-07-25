@@ -57,6 +57,25 @@ def make_new_student(first_name, last_name, github):
 
     print(f"Successfully added student: {first_name} {last_name}")
 
+def make_new_project(title, description, max_grade):
+    """Add a new project and print confirmation.
+
+    Given a title, description, and max_grade, add project to the
+    database and print a confirmation message.
+    """
+
+    QUERY = """
+        INSERT INTO projects (title, description, max_grade)
+          VALUES (:title, :description, :max_grade)
+        """
+
+    db.session.execute(QUERY, {'title': title,
+                               'description': description,
+                               'max_grade': max_grade })
+    db.session.commit()
+
+    print(f"Successfully added project: {title}")
+
 
 def get_project_by_title(title):
     """Given a project title, print information about the project."""
@@ -149,6 +168,31 @@ def get_grades_by_title(title):
 
     return rows
 
+def get_all_students():
+
+    QUERY = """
+        SELECT first_name, last_name, github
+        FROM students
+        """
+
+    cursor = db.session.execute(QUERY)
+
+    list_of_students = cursor.fetchall()
+
+    return list_of_students
+
+def get_all_projects():
+
+    QUERY = """
+        SELECT title
+        FROM projects
+        """
+
+    cursor = db.session.execute(QUERY)
+
+    list_of_projects = cursor.fetchall()
+
+    return list_of_projects
 
 def handle_input():
     """Main loop.
